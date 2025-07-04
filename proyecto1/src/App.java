@@ -77,20 +77,35 @@ public class App {
 
         private static void registrarEstudiante(Scanner keyboard){
                 System.out.print("Ingrese el nombre del estudiante: ");
-                nombreEstudiante = keyboard.nextLine().strip();
-                boolean nombreEsValido = validarNombre(nombreEstudiante);
+                String nombre = keyboard.nextLine().strip();
+                boolean nombreEsValido = validarNombre(nombre);
                 while(!nombreEsValido){
                     System.out.println("El nombre ingresado no es válido, por favor digitelo nuevamente: ");
-                    nombreEstudiante = keyboard.nextLine().strip();
+                    nombre = keyboard.nextLine().strip();
                     nombreEsValido = validarNombre(nombreEstudiante);
                 }
-                notaOne = validarNota(keyboard, 1);
-                notaTwo = validarNota(keyboard, 2);   
-                notaThree = validarNota(keyboard, 3);
-
-                System.out.printf("El registro del estudiante | %s | fue exitoso.\nSus datos son: \n", nombreEstudiante);
-                String estudiante = mostrarDatosEstudianteActual();
-                System.out.println(estudiante);
+                double nota1 = validarNota(keyboard, 1);
+                double nota2 = validarNota(keyboard, 2);   
+                double nota3 = validarNota(keyboard, 3);
+                System.out.println(String.format("""
+                                            Los datos que has ingresado son:
+                                            Estudiante: %s
+                                            Nota 1: %.2f
+                                            Nota 2: %.2f
+                                            Nota 3: %.2f
+                                            """, nombre, nota1, nota2, nota3));
+                System.out.print("¿Deseas guardar estos datos? (S=si | N=no): ");
+                String decisionUser = validarCaracterContieneSorN(keyboard);
+                if(decisionUser.equals("s")){
+                    guardarDatos(nombre, nota1, nota2, nota3);
+                    System.out.printf("El registro del estudiante | %s | fue exitoso.\nSus datos son: \n", nombreEstudiante);
+                    String estudiante = mostrarDatosEstudianteActual();
+                    System.out.println(estudiante);
+                
+                } else{
+                    System.out.println("No has guardado los datos, operación cancelada.");
+                    System.out.println("Regresando al menú principal..."); 
+                }     
         }
 
         private static boolean validarNombre(String nombre){
@@ -117,13 +132,16 @@ public class App {
         }
 
         private static String mostrarDatosEstudianteActual(){
+            double promedio = calcularPromedio(notaTwo, notaThree, notaOne);
+            String estado = estudianteApruebaOReprueba(promedio);
             return seHaRegistradoUnEstudiante(nombreEstudiante) ? String.format("""
                 Estudiante: %s
                 Nota 1: %.2f
                 Nota 2: %.2f
                 Nota 3: %.2f
                 Promedio: %.2f
-                """, nombreEstudiante, notaOne, notaTwo, notaThree, calcularPromedio(notaOne, notaTwo, notaThree))
+                Estado: %s
+                """, nombreEstudiante, notaOne, notaTwo, notaThree, promedio, estado)
                 : "No se ha registrado a ningún estudiante todavía, registra a uno para continuar.";
         }
 
@@ -170,6 +188,18 @@ public class App {
             }
             keyboard.nextLine();
             return convertirCharacter;            
-        } 
+        }
+
+        private static void guardarDatos(String nombre, double nota1, double nota2, double nota3){
+            nombreEstudiante = nombre;
+            notaOne = nota1;
+            notaTwo = nota2;
+            notaThree = nota3;
+        }
+        
+        private static String estudianteApruebaOReprueba(double promedio){
+            return promedio >= 60 ? String.format("El estudiante %s APROBÓ con un promedio de: %.2f", nombreEstudiante, promedio)
+                                  : String.format("El estudiante %s REPROBÓ con un promedio de: %.2f", nombreEstudiante, promedio);
+        }
     }
 
