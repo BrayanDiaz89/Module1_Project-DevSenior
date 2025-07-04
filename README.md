@@ -2,7 +2,7 @@
 
 <p align="justify">
 ¡Bienvenido/a al sistema REG_EXCELENT! 🎉  
-Este es un proyecto de consola hecho en Java, diseñado como parte del <b>Módulo 1**</b> de formación en programación con la academia Dev Senior Code Link: https://devseniorcode.com/. Permite registrar, consultar y analizar los datos de un estudiante de manera simple, amigable y robusta.
+Este es un proyecto de consola hecho en Java, diseñado como parte del <b>Módulo 1</b> de formación en programación con la academia Dev Senior Code Link: https://devseniorcode.com/. Permite registrar, consultar y analizar los datos de un estudiante de manera simple, amigable y robusta.
 </p>
 ---
 
