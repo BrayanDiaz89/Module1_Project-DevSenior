@@ -1,4 +1,6 @@
-# 🎓 Sistema Básico de Registro de Estudiantes - REG_EXCELENT
+<p align="center">
+  <b>🎓 Sistema Básico de Registro de Estudiantes - REG_EXCELENT </b>
+</p> 
 
 <p align="justify">
 ¡Bienvenido/a al sistema REG_EXCELENT! 🎉  
