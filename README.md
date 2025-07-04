@@ -1,6 +1,6 @@
-<p align="center">
+<h1 align="center">
   <b>🎓 Sistema Básico de Registro de Estudiantes - REG_EXCELENT </b>
-</p> 
+</h1> 
 
 <p align="justify">
 ¡Bienvenido/a al sistema REG_EXCELENT! 🎉  
