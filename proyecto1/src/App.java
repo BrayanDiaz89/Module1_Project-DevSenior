@@ -88,6 +88,5 @@ public class App {
                 Nota 3: %.2f
                 """, nombreEstudiante, notaOne, notaTwo, notaThree);
         } 
-
     }
 
