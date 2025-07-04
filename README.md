@@ -38,7 +38,7 @@ El sistema te permite:
 ### ▶️ Pasos para ejecutar
 1. Clona el repositorio:
 ```bash
-git clone https://github.com/TU_USUARIO/TU_REPOSITORIO.git
+git clone https://github.com/BrayanDiaz89/Module1_Project-DevSenior.git
 ```
 2. Accede a la ubicación del proyecto con un editor de código, puede ser Visual Studio Code.
 3. Ejecuta.
