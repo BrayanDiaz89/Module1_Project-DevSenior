@@ -37,9 +37,9 @@ El sistema te permite:
 1. Clona el repositorio:
 ```bash
 git clone https://github.com/TU_USUARIO/TU_REPOSITORIO.git
-
 2. Accede a la ubicación del proyecto con un editor de código, puede ser Visual Studio Code.
 3. Ejecuta.
+```
 
 ---
 
